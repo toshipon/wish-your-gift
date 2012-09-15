@@ -6,6 +6,7 @@ gem 'haml-rails'
 gem 'omniauth-facebook'
 gem 'amazon-ecs'
 gem 'koala'
+gem 'twitter-bootstrap-rails'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
