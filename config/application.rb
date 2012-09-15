@@ -55,5 +55,8 @@ module WishYourGift
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    ENV['FACEBOOK_APP_ID'] = '215650311891402'
+    ENV['FACEBOOK_SECRET'] = '829a951572d584ef66a6cf81dba0ed0e'
   end
 end

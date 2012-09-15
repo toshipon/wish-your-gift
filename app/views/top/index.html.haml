@@ -6,5 +6,7 @@
     %br
     When your friend's birthday has come, you can give a present what your friend's want!
 
-    .btn.btn-primary.btn-large
-      Try it with facebook
+    = link_to "/auth/facebook" do
+      %div{:style => "color:white;"}
+        .btn.btn-primary.btn-large
+          Try it with facebook
