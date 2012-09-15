@@ -19,6 +19,10 @@ group :test, :development do
   gem 'heroku'
 end
 
+group :test do
+  gem 'pry'
+end
+
 group :production do
   gem 'pg'
   gem 'thin'

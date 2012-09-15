@@ -26,22 +26,25 @@
             %span.icon-bar
             %span.icon-bar
           %a.brand(href="#") WishYourGift
-          .container.nav-collapse
-            %ul.nav
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+          -#.container.nav-collapse
+          -#  %ul.nav
+          -#    %li= link_to "Link 1", "/path1"
+          -#    %li= link_to "Link 2", "/path2"
+          -#    %li= link_to "Link 3", "/path3"
 
     .container-fluid
 
       .row-fluid
-        -#.span3
-        -#  .well.sidebar-nav
-        -#    %ul.nav.nav-list
-        -#      %li.nav-header Sidebar
-        -#      %li= link_to "Link 1", "/path1"
-        -#      %li= link_to "Link 2", "/path2"
-        -#      %li= link_to "Link 3", "/path3"
+        - if current_user
+          .span3
+            .well.sidebar-nav
+              %ul.nav.nav-list
+                %li.nav-header My menu
+                %li.index= link_to "your wish list", :controller => :mypages, :action => :index
+                %li.regist= link_to "your wish list ID", :controller => :mypages, :action => :register_wishlist_id
+                %li.other= link_to "other info", :controller => :mypages, :action => :other_info
+                %li.divider
+                %li= link_to "sign out", signout_path, :id => "sign_out"
         .span9
           = yield
 
@@ -57,3 +60,14 @@
       \==================================================
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
+
+:javascript
+  $(function(){
+    if( location.pathname == '/mypages/index' ){
+      $('.index').addClass('active');
+    }else if( location.pathname == '/mypages/register_wishlist_id' ){
+      $('.regist').addClass('active');
+    }else if( location.pathname == '/mypages/other_info' ){
+      $('.other').addClass('active');
+    }
+  });
