@@ -1,2 +1,13 @@
-%h1 Mypages#index
-%p Find me in app/views/mypages/index.html.haml
+%h2
+  Your Wish List
+- unless current_user.wishlist.try(:has_key?)
+  .alert.alert-success
+    %button{:type => "button", :class => "close", :"data-dismiss" => "alert"}
+      ☓
+    %h4
+      Welcome!
+    At first, you should register your wish list ID below.
+
+  = link_to "Register your wishlist ID", :action => :register_wishlist_id
+- else
+  自分のwishlistを表示する

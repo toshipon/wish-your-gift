@@ -40,9 +40,9 @@
             .well.sidebar-nav
               %ul.nav.nav-list
                 %li.nav-header My menu
-                %li.index= link_to "your wish list", :controller => :mypages, :action => :index
-                %li.regist= link_to "your wish list ID", :controller => :mypages, :action => :register_wishlist_id
-                %li.other= link_to "other info", :controller => :mypages, :action => :other_info
+                %li.index= link_to "Wishlist", :controller => :mypages, :action => :index
+                %li.regist= link_to "Settings", :controller => :mypages, :action => :register_wishlist_id
+                %li.other= link_to "Other info", :controller => :mypages, :action => :other_info
                 %li.divider
                 %li= link_to "sign out", signout_path, :id => "sign_out"
         .span9
@@ -60,14 +60,3 @@
       \==================================================
     / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application"
-
-:javascript
-  $(function(){
-    if( location.pathname == '/mypages/index' ){
-      $('.index').addClass('active');
-    }else if( location.pathname == '/mypages/register_wishlist_id' ){
-      $('.regist').addClass('active');
-    }else if( location.pathname == '/mypages/other_info' ){
-      $('.other').addClass('active');
-    }
-  });

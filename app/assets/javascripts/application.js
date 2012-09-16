@@ -14,3 +14,12 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+$(function(){
+    if( location.pathname == '/mypages/index'){
+        $('.index').addClass('active');
+    }else if( location.pathname == '/mypages/register_wishlist_id' ){
+        $('.regist').addClass('active');
+    }else if( location.pathname == '/mypages/other_info' ){
+        $('.other').addClass('active');
+    }
+});

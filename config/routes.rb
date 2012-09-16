@@ -1,4 +1,6 @@
 WishYourGift::Application.routes.draw do
+  get "wishlist/new"
+
   get "mypages/index"
   get "mypages/other_info"
   get "mypages/register_wishlist_id"
@@ -9,4 +11,6 @@ WishYourGift::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout'
 
   root :to => 'top#index'
+
+  resources :wishlist
 end
