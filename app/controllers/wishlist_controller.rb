@@ -1,4 +1,6 @@
 class WishlistController < ApplicationController
+  before_filter :require_login
+
   def new
     @wishilist = Wishlist.create(:user_id => current_user.id)
   end
@@ -13,5 +15,11 @@ class WishlistController < ApplicationController
     @wishlist.key = params[:wishlist][:key] if params[:wishlist][:key]
     @wishlist.affiliate_id = params[:wishlist][:affiliate_id] if params[:wishlist][:affiliate_id]
     @wishlist.save
+  end
+
+  def require_login
+    unless current_user
+      redirect_to root_path
+    end
   end
 end
