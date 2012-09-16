@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 class MypagesController < ApplicationController
   require 'open-uri'
   require 'net/http'
@@ -23,6 +25,22 @@ class MypagesController < ApplicationController
           next
         end
       end
+    end
+  end
+
+  def share
+    if current_user
+      main_message = "#{current_user.name}さんがAmazon ほしい物リストを共有しました。こっそりプレゼントしてあげると喜ぶかもしれません。"
+      name = "#{current_user.name}さんの欲しい物リストを見てみる"
+      link = "http://wish-your-gift.herokuapp.com//wishlist/#{current_user.wishlist.id}"
+      description = "誕生日が近づくと、自動でほしい物リストを共有するアプリからの投稿です。"
+      picture = "http://g-ec2.images-amazon.com/images/G/09/x-locale/communities/wishlist/uwl/UWL_SWF_shims._V158153249_.png"
+      current_user.facebook.put_wall_post(main_message,{
+        :name => name,
+        :link => link,
+        :description => description,
+        :picture => picture,
+      })
     end
   end
 

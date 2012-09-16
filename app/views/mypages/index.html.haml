@@ -2,7 +2,7 @@
   = javascript_include_tag "jquery.js"
   = javascript_include_tag "jqueryAutoHeight.js"
 
-%h2
+%h2<>
   Your Wish List
 - unless current_user.wishlist.try(:has_key?)
   .alert.alert-success
@@ -14,6 +14,7 @@
 
   = link_to "Register your wishlist ID", :action => :register_wishlist_id
 - else
+  = render "share_button"
   - if @wish_products
     %ul.thumbnails
       - @wish_products.each do |product|
@@ -24,6 +25,7 @@
               = product['title']
             %p
               = product['price']
+  = render "share_button"
 
 :javascript
   jQuery(function($){
