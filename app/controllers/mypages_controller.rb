@@ -9,7 +9,7 @@ class MypagesController < ApplicationController
       contents.scan(/(http:\/\/[^\/]*\/[a-zA-Z0-9?&-_=%\/]*\/dp\/([a-zA-Z0-9?&-_=%][^\/]*)\/[a-zA-Z0-9?&-_=%\/]*)/) do |matched|
         begin
           product = {}
-          product.store("url", matched[0] + "&tag=happy_birthday-22")
+          product.store("url", matched[0] + "&tag=" + user_affiliate_id)
           res = Amazon::Ecs.item_lookup(matched[1], {:country => 'jp', :response_group => 'Medium',})
           unless res.has_error?
             res.items.each do |item|

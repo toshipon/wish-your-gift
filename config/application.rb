@@ -58,5 +58,6 @@ module WishYourGift
 
     ENV['FACEBOOK_APP_ID'] = '215650311891402'
     ENV['FACEBOOK_SECRET'] = '829a951572d584ef66a6cf81dba0ed0e'
+    ENV['AMAZON_AFFILIATE_ID'] = 'happy_birthday-22'
   end
 end
