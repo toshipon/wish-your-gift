@@ -1,3 +1,7 @@
+- content_for :javascript do
+  = javascript_include_tag "jquery.js"
+  = javascript_include_tag "jqueryAutoHeight.js"
+
 %h2
   Your Wish List
 - unless current_user.wishlist.try(:has_key?)
@@ -10,4 +14,18 @@
 
   = link_to "Register your wishlist ID", :action => :register_wishlist_id
 - else
-  自分のwishlistを表示する
+  - if @wish_products
+    %ul.thumbnails
+      - @wish_products.each do |product|
+        %li.span3
+          = link_to(product['url'], :target => '_blank', :class => 'thumbnail') do
+            = image_tag(product["image"])
+            %h4
+              = product['title']
+            %p
+              = product['price']
+
+:javascript
+  jQuery(function($){
+      $('li.span3').autoHeight();
+  });

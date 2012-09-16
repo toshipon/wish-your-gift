@@ -15,7 +15,8 @@
     %link(href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72")
     %link(href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed")
     %link(href="images/favicon.ico" rel="shortcut icon")
-
+    = yield :javascript
+    = yield :csss
 
   %body
     .navbar.navbar-fixed-top
