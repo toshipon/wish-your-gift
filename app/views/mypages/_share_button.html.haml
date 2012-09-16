@@ -1,4 +1,4 @@
-- if current_user.wishlist.has_key?
+- if current_user.try(:wishlist).try(:has_key?)
   %p{:style => "text-align: right;"}
     = link_to({ :action => :share }, :class => "btn btn-primary btn-large") do
       Share your list

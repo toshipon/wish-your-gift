@@ -5,7 +5,7 @@ class MypagesController < ApplicationController
   require 'net/http'
 
   def index
-    if current_user && current_user.wishlist.has_key?
+    if current_user && current_user.try(:wishlist).try(:has_key?)
       @wish_products = []
       contents = Net::HTTP.get_response(URI.parse("http://www.amazon.co.jp/registry/wishlist/#{current_user.wishlist.key}?layout=compact")).body
       contents.scan(/(http:\/\/[^\/]*\/[a-zA-Z0-9?&-_=%\/]*\/dp\/([a-zA-Z0-9?&-_=%][^\/]*)\/[a-zA-Z0-9?&-_=%\/]*)/) do |matched|
@@ -25,11 +25,11 @@ class MypagesController < ApplicationController
           next
         end
       end
+      @sliced_products = []
+      @wish_products.each_slice(4) {|slice|
+        @sliced_products << slice
+      }
     end
-    @sliced_products = []
-    @wish_products.each_slice(4) {|slice|
-      @sliced_products << slice
-    }
   end
 
   def share
