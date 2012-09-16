@@ -1,0 +1,20 @@
+- content_for :javascript do
+  = javascript_include_tag "jquery.js"
+  = javascript_include_tag "jqueryAutoHeight.js"
+
+.page-header
+  %h2
+    #{@person_wishlist.user.name}'s Wish List
+  %small
+    The birth day will come at #{@person_wishlist.user.birthday_str}
+- if @sliced_products
+  - @sliced_products.each do |product_group|
+    %ul.thumbnails
+      - product_group.each do |product|
+        %li.span3
+          = link_to(product['url'], :target => '_blank', :class => 'thumbnail') do
+            = image_tag(product["image"])
+            %h4
+              = product['title']
+            %p
+              = product['price']

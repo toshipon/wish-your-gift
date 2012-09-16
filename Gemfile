@@ -20,7 +20,9 @@ group :test, :development do
 end
 
 group :test do
-  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-doc'
+  gem 'pry-nav'
 end
 
 group :production do

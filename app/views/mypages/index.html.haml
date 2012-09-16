@@ -15,16 +15,17 @@
   = link_to "Register your wishlist ID", :action => :register_wishlist_id
 - else
   = render "share_button"
-  - if @wish_products
-    %ul.thumbnails
-      - @wish_products.each do |product|
-        %li.span3
-          = link_to(product['url'], :target => '_blank', :class => 'thumbnail') do
-            = image_tag(product["image"])
-            %h4
-              = product['title']
-            %p
-              = product['price']
+  - if @sliced_products
+    - @sliced_products.each do |product_group|
+      %ul.thumbnails
+        - product_group.each do |product|
+          %li.span3
+            = link_to(product['url'], :target => '_blank', :class => 'thumbnail') do
+              = image_tag(product["image"])
+              %h4
+                = product['title']
+              %p
+                = product['price']
   = render "share_button"
 
 :javascript

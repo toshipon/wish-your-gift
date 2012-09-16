@@ -1,4 +1,5 @@
 WishYourGift::Application.routes.draw do
+  get "gift/show"
   get "wishlist/new"
 
   get "mypages/index"
@@ -10,6 +11,7 @@ WishYourGift::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create'
   match 'auth/failure', to: redirect('/')
   match 'signout', to: 'sessions#destroy', as: 'signout'
+  match 'gift/:id', :to => 'gift#show'
 
   root :to => 'top#index'
 

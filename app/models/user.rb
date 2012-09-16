@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def facebook
     @facebook ||= Koala::Facebook::API.new(oauth_token)
   end
+
+  def birthday_str
+    birthday.strftime("%m/%d")
+  end
 end

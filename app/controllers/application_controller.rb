@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   if Rails.env.development?
     require 'pry'
+    require 'pry-nav'
   end
 
   def current_user
@@ -9,9 +10,14 @@ class ApplicationController < ActionController::Base
   end
   helper_method :current_user
 
-  def user_affiliate_id
-    if current_user.wishlist.has_affiliate_id?
+  def user_affiliate_id(wishlist_id=nil)
+    if current_user.try(:wishlist).try(:has_affiliate_id?)
       current_user.wishlist.affiliate_id
+    elsif wishlist_id
+      person_affiliate_id = Wishlist.find(wishlist_id).affiliate_id
+      unless person_affiliate_id.present?
+        ENV['AMAZON_AFFILIATE_ID']
+      end
     else
       ENV['AMAZON_AFFILIATE_ID']
     end
