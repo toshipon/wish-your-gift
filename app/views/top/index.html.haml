@@ -1,3 +1,13 @@
+#fb-root
+:javascript
+  (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/ja_JP/all.js#xfbml=1&appId=215650311891402";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+  !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");
 .hero-unit
   %h1
     Wish Your Gift
@@ -10,3 +20,9 @@
       %div{:style => "color:white;"}
         .btn.btn-primary.btn-large
           Try it with facebook
+
+%table
+  %td
+    <a href="https://twitter.com/share" class="twitter-share-button" data-text="誕生日には欲しい物をもらおう！" data-lang="ja" data-hashtags="wishyourgift">ツイート</a>
+  %td
+    <div class="fb-like" data-href="http://wish-your-gift.herokuapp.com/" data-send="false" data-layout="button_count" data-width="450" data-show-faces="true"></div>

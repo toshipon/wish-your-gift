@@ -1,12 +1,11 @@
-.alert.alert-success
-  %button{:type => "button", :class => "close", :"data-dismiss" => "alert"}
-    ☓
-  Your wishlist ID was updated!
-%h2
-  Settings
-%p
-  Input your amazon wishlist ID
-= form_for(@wishlist, :html => {:class => "navbar-form pull-left"}) do |f|
-  .well.well-small
-    = f.text_field :key, :class => "span3", :size => 128
-    = f.submit "submit", :class => "btn"
+- if update_wishlist_id?
+  .alert.alert-success
+    %button{:type => "button", :class => "close", :"data-dismiss" => "alert"}
+      ☓
+    Your wishlist ID was updated!
+- if update_affiliate_id?
+  .alert.alert-success
+    %button{:type => "button", :class => "close", :"data-dismiss" => "alert"}
+      ☓
+    Your amazon affiliate ID was updated!
+= render "wishlist_form"

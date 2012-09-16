@@ -1,0 +1,15 @@
+%h2
+  Settings
+%p
+  Input your amazon wishlist ID
+= form_for(@wishlist, :html => {:class => "navbar-form pull-left"}) do |f|
+  .well.well-small
+    = f.text_field :key, :class => "span3", :size => 128, :placeholder => 'amazon wishlist ID'
+    = f.submit "submit", :class => "btn"
+
+%p
+  If you have amazon affiliate ID, You can add affiliate tag in your wishlist
+= form_for(@wishlist, :html => {:class => "navbar-form pull-left"}) do |f|
+  .well.well-small
+    = f.text_field :affiliate_id, :class => "span3", :size => 128, :placeholder => 'amazon affiliate ID'
+    = f.submit "submit", :class => "btn"

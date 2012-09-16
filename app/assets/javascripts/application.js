@@ -15,11 +15,11 @@
 //= require twitter/bootstrap
 //= require_tree .
 $(function(){
-    if( location.pathname == '/mypages/index'){
+    if( location.pathname.match(/\/mypages\/index/)){
         $('.index').addClass('active');
-    }else if( location.pathname == '/mypages/register_wishlist_id' ){
+    }else if( location.pathname.match(/\/wishlist\/*/)){
         $('.regist').addClass('active');
-    }else if( location.pathname == '/mypages/other_info' ){
+    }else if( location.pathname.match(/\/mypages\/other_info/)){
         $('.other').addClass('active');
     }
 });

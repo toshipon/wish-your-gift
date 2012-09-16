@@ -10,7 +10,8 @@ class WishlistController < ApplicationController
 
   def update
     @wishlist = current_user.wishlist
-    @wishlist.key = params[:wishlist][:key]
+    @wishlist.key = params[:wishlist][:key] if params[:wishlist][:key]
+    @wishlist.affiliate_id = params[:wishlist][:affiliate_id] if params[:wishlist][:affiliate_id]
     @wishlist.save
   end
 end
