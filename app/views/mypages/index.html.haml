@@ -4,6 +4,8 @@
 
 %h2<>
   Your Wish List
+%p
+  This list will post on your facebook wall a week ago on your birthday.
 - unless current_user.try(:wishlist).try(:has_key?)
   .alert.alert-success
     %button{:type => "button", :class => "close", :"data-dismiss" => "alert"}
