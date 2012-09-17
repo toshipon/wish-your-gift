@@ -17,6 +17,8 @@ class ApplicationController < ActionController::Base
       person_affiliate_id = Wishlist.find(wishlist_id).affiliate_id
       unless person_affiliate_id.present?
         ENV['AMAZON_AFFILIATE_ID']
+      else
+        person_affiliate_id
       end
     else
       ENV['AMAZON_AFFILIATE_ID']
