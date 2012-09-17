@@ -2,7 +2,7 @@ class WishlistController < ApplicationController
   before_filter :require_login
 
   def new
-    @wishilist = Wishlist.create(:user_id => current_user.id)
+    @wishlist = Wishlist.create(:user_id => current_user.id)
   end
 
   def show
