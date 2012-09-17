@@ -7,6 +7,7 @@ gem 'omniauth-facebook'
 gem 'amazon-ecs'
 gem 'koala'
 gem 'twitter-bootstrap-rails'
+gem 'sitemap_generator'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
