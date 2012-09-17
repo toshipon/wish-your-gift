@@ -13,3 +13,37 @@
   .well.well-small
     = f.text_field :affiliate_id, :class => "span3", :size => 128, :placeholder => 'amazon affiliate ID'
     = f.submit "submit", :class => "btn"
+
+%h3
+  How to get wishlist ID
+
+%dl
+  %dt
+    Go to your amazon wishlist page
+  %dd
+    =link_to "http://www.amazon.co.jp/gp/registry/wishlist", "http://www.amazon.co.jp/gp/registry/wishlist", :target => '_blank'
+  %dt
+    Click to "Share the list"
+  %dd
+    = image_tag("share_link_ex.png")
+  %dt
+    Get your wishlist ID
+  %dd
+    = image_tag("wishlist_id.png")
+
+%h3
+  How to set your address when your friends give the gift to you
+
+%dl
+  %dt
+    Go to your amazon wishlist page
+  %dd
+    =link_to "http://www.amazon.co.jp/gp/registry/wishlist", "http://www.amazon.co.jp/gp/registry/wishlist", :target => '_blank'
+  %dt
+    Click to "Set address for delivery"
+  %dd
+    = image_tag("set_address.png")
+  %dt
+    Select or set address for delivery
+  %dd
+    = image_tag("set_current_address.png")
